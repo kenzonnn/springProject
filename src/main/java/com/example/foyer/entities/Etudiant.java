@@ -1,13 +1,12 @@
 package com.example.foyer.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.util.*;
+
 
 @Entity
 @Getter
@@ -15,11 +14,14 @@ import java.util.Date;
 public class Etudiant {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idEtudiant;
     String nom;
     String prenom;
     int cin;
     String ecole;
     Date dateNaissance;
+
+    @ManyToMany(cascade = CascadeType.ALL , mappedBy = "etudiants")
+    private Set<Reservation> reservations;
 }

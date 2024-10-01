@@ -1,13 +1,12 @@
 package com.example.foyer.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -15,8 +14,11 @@ import java.util.Date;
 public class Reservation {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idReservation;
     Date anneeUniversitaire;
     boolean estValide;
+
+    @ManyToMany
+    private Set<Etudiant> etudiants;
 }

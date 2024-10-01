@@ -1,10 +1,10 @@
 package com.example.foyer.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.*;
+
 
 
 @Entity
@@ -13,8 +13,14 @@ import lombok.Setter;
 public class Foyer {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idFoyer;
     String nomFoyer;
     int capaciteFoyer;
+
+    @OneToOne(cascade = CascadeType.ALL , mappedBy = "foyer")
+    private Universite universite;
+
+    @OneToMany(cascade = CascadeType.ALL , mappedBy = "foyer")
+    private Set<Bloc> bloc;
 }

@@ -1,9 +1,7 @@
 package com.example.foyer.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +11,11 @@ import lombok.Setter;
 public class Universite {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idUniversite;
     String nomUniversite;
     String adresse;
+
+    @OneToOne
+    private Foyer foyer;
 }
