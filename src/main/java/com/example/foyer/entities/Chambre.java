@@ -1,15 +1,18 @@
 package com.example.foyer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.*;
-import org.hibernate.bytecode.enhance.spi.EnhancementInfo;
+
 
 @Entity
 @Getter
 @Setter
-public class Chambre {
+public class Chambre implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +23,7 @@ public class Chambre {
     TypeChambre typeC;
 
     @ManyToOne
+    @JsonIgnore
     private Bloc bloc;
 
     @OneToMany

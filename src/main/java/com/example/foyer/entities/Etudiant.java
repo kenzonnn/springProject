@@ -1,6 +1,7 @@
 package com.example.foyer.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +24,6 @@ public class Etudiant {
     Date dateNaissance;
 
     @ManyToMany(cascade = CascadeType.ALL , mappedBy = "etudiants")
-    private Set<Reservation> reservations;
+    @JsonIgnore
+    private List<Reservation> reservations;
 }

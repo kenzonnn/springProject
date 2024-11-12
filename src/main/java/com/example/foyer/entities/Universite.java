@@ -5,17 +5,21 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Entity
 @Getter
 @Setter
-public class Universite {
+public class Universite implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idUniversite;
+
     String nomUniversite;
+
     String adresse;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Foyer foyer;
 }

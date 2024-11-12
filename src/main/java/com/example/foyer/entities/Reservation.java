@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,10 +15,10 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idReservation;
+    String idReservation;
     Date anneeUniversitaire;
     boolean estValide;
 
     @ManyToMany
-    private Set<Etudiant> etudiants;
+    private List<Etudiant> etudiants;
 }

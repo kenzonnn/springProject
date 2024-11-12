@@ -1,26 +1,31 @@
-package com.example.foyer.entities;
+    package com.example.foyer.entities;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import java.util.*;
+    import com.fasterxml.jackson.annotation.JsonIgnore;
+    import jakarta.persistence.*;
+    import lombok.Getter;
+    import lombok.Setter;
+
+    import java.io.Serializable;
+    import java.util.*;
 
 
 
-@Entity
-@Getter
-@Setter
-public class Foyer {
+    @Entity
+    @Getter
+    @Setter
+    public class Foyer implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int idFoyer;
-    String nomFoyer;
-    int capaciteFoyer;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        int idFoyer;
+        String nomFoyer;
+        int capaciteFoyer;
 
-    @OneToOne(cascade = CascadeType.ALL , mappedBy = "foyer")
-    private Universite universite;
+        @OneToOne(mappedBy = "foyer")
+        @JsonIgnore
+        private Universite universite;
 
-    @OneToMany(cascade = CascadeType.ALL , mappedBy = "foyer")
-    private Set<Bloc> bloc;
-}
+//hedha l fils puisque fama l mapped by
+        @OneToMany(cascade = CascadeType.ALL , mappedBy = "foyer")
+        private List<Bloc> bloc;
+    }
