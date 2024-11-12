@@ -32,7 +32,7 @@ public class ReservationController {
     @GetMapping("{idReservation}")
     @Operation(summary = "Get Reservation by ID", description = "Retrieves a Reservation by its ID.")
     public Reservation getReservation(@PathVariable("idReservation") String idReservation) {
-        return reservationService.getReservationById(idReservation);
+        return reservationService.getReservationById(Integer.valueOf(idReservation));
     }
 
     @DeleteMapping()
@@ -57,5 +57,11 @@ public class ReservationController {
     public Reservation affecterEtudiantToReservation(@PathVariable ("idReservation") String idReservation, @PathVariable ("idEtudiant") int idEtudiant) {
         return reservationService.affecterEtudiantToReservation(idReservation , idEtudiant);
     }
+
+    @PutMapping("desaffecterEtudiantFromReservation/{reservationId}/{etudiantId}")
+    public void desaffecterEtudiantFromReservation(@PathVariable ("reservationId") String reservationId, @PathVariable ("etudiantId") int etudiantId) {
+        reservationService.desaffecterEtudiantFromReservation(reservationId , etudiantId);
+    }
+
 }
 

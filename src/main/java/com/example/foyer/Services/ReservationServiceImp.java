@@ -25,8 +25,8 @@ public class ReservationServiceImp implements IReservationService {
     }
 
     @Override
-    public Reservation getReservationById(String idReservation) {
-        return reservationRepository.findById(Integer.valueOf(idReservation)).get();
+    public Reservation getReservationById(int idReservation) {
+        return reservationRepository.findById(idReservation).get();
     }
 
     @Override
@@ -44,10 +44,9 @@ public class ReservationServiceImp implements IReservationService {
         return reservationRepository.findAll();
     }
 
-
     @Override
     public Reservation affecterEtudiantToReservation( String idREservation, int idEtudiant){
-        Reservation  reservation = getReservationById(idREservation);
+        Reservation  reservation = getReservationById(Integer.valueOf(idREservation));
         Etudiant etudiant = etudiantRepository.findById(idEtudiant).get();
         List<Etudiant> etudiants = reservation.getEtudiants();
         etudiants = new ArrayList<>();
@@ -56,6 +55,14 @@ public class ReservationServiceImp implements IReservationService {
         }
         reservation.setEtudiants(etudiants);
         return reservationRepository.save(reservation);
+    }
+
+    @Override
+    public void desaffecterEtudiantFromReservation(String reservationId, int etudiantId) {
+        Reservation reservation = getReservationById(Integer.valueOf(reservationId));
+        Etudiant etudiant = etudiantRepository.findById(etudiantId).get();
+        reservation.getEtudiants().remove(etudiant);
+        reservationRepository.save(reservation);
     }
 
 }

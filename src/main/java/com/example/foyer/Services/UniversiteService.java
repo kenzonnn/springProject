@@ -56,4 +56,12 @@ public class UniversiteService implements IUniversiteService {
         universiteRepo.save(universite);
         return universite;
     }
+
+    @Override
+    public Universite DesaffecterFoyerFromUniversite(int universiteId){
+        Universite universite = universiteRepo.findById(universiteId).get();
+        universite.setFoyer(null);
+        universiteRepo.save(universite);
+        return universite;
+    }
 }

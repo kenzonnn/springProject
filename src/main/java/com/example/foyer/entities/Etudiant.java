@@ -23,7 +23,7 @@ public class Etudiant {
     String ecole;
     Date dateNaissance;
 
-    @ManyToMany(cascade = CascadeType.ALL , mappedBy = "etudiants")
+    @ManyToMany( mappedBy = "etudiants")
     @JsonIgnore
     private List<Reservation> reservations;
 }

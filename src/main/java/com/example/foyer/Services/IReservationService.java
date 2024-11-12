@@ -7,7 +7,7 @@ import java.util.List;
 public interface IReservationService {
     Reservation addReservation(Reservation reservation);
 
-    Reservation getReservationById(String idReservation);
+    Reservation getReservationById(int idReservation);
 
     Reservation updateReservation(Reservation reservation);
 
@@ -16,4 +16,6 @@ public interface IReservationService {
     List<Reservation> getAllReservation();
 
     Reservation affecterEtudiantToReservation( String idREservation, int idEtudiant);
+
+    void desaffecterEtudiantFromReservation(String reservationId, int etudiantId) ;
 }

@@ -1,6 +1,5 @@
 package com.example.foyer.entities;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,10 +14,10 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    String idReservation;
+    int idReservation;
     Date anneeUniversitaire;
     boolean estValide;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Etudiant> etudiants;
 }

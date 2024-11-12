@@ -20,4 +20,6 @@ public interface IUniversiteService {
     Universite affecterFoyerToUniversite( Universite universite);
 
     Universite affecterFoyerToUniversite( int idUniversite, Foyer foyer);
+
+    Universite DesaffecterFoyerFromUniversite(int UniversiteId) ;
 }

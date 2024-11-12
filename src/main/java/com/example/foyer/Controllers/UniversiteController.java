@@ -58,4 +58,11 @@ public class UniversiteController {
         return universite1;
     }
 
+    @PutMapping("DesaffecterFoyerFromUniversite/{universiteId}")
+    public Universite DesaffecterFoyerFromUniversite(@PathVariable("universiteId") int universiteId) {
+        universiteService.DesaffecterFoyerFromUniversite(universiteId);
+        return universiteService.getUniversiteById(universiteId);
+    }
+
+
 }
