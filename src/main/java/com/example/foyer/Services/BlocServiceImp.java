@@ -49,5 +49,9 @@ public class BlocServiceImp implements IBlocService{
         });
         return bloc1;
     }
+    @Override
+    public List<Bloc> getBlocByUniversite(int universite) {
+        return blocRepository.findByFoyer_Universite_IdUniversite(universite);
+    }
 
 }

@@ -2,10 +2,12 @@ package com.example.foyer.Controllers;
 
 
 import com.example.foyer.Services.IFoyerService;
+import com.example.foyer.entities.Bloc;
 import com.example.foyer.entities.Foyer;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,4 +52,9 @@ public class FoyerController {
         foyerService.assignBlocToFoyer(idBloc, idFoyer);
         System.out.println("Bloc assigné avec succes");
     }
+
+//    @GetMapping("getBlocByUniversite/{idUniversite}")
+//    public List<Bloc> getBlocByUniversite(@PathVariable ("idUniversite") int idUniversite) {
+//        return foyerService.getBlocByUniversite(idUniversite);
+//    }
 }

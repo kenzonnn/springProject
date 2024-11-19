@@ -55,5 +55,9 @@ public class BlocController {
         return blocService.ajouterBlocEtChambresAssocie(bloc);
     }
 
+    @GetMapping("findBlocByUniversite/{idUniversite}")
+    public List<Bloc> getBlocByUniversite(@PathVariable ("idUniversite") int idUniversite) {
+        return blocService.getBlocByUniversite(idUniversite);
+    }
 
 }

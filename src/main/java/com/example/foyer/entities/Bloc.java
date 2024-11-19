@@ -23,9 +23,10 @@ public class Bloc implements Serializable {
     @ManyToOne
     @JsonIgnore
     private Foyer foyer;
-
+// l cardinalité la plus faible lel fils
 //hedha l fils puisque fama l mapped by
-    // l cascade bech l'affectation tsir
+// l cascade bech l'affectation tsir / fel unidrectionnelle : elli ychouf howa li aandou l cascade
+//      exp : (universite -> foyer) fel universite nhotou l cascade
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "bloc" )
     private List<Chambre> chambres;
 }

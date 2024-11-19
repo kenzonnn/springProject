@@ -7,8 +7,10 @@ import com.example.foyer.entities.Bloc;
 import com.example.foyer.entities.Foyer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.ListResourceBundle;
 
 @Service
 @AllArgsConstructor

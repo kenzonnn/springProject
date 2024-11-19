@@ -19,4 +19,5 @@ public interface IBlocService {
 
     Bloc ajouterBlocEtChambresAssocie(Bloc bloc);
 
+    List<Bloc> getBlocByUniversite(int idUniversite);
 }

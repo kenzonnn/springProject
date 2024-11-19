@@ -1,5 +1,6 @@
 package com.example.foyer.Services;
 
+import com.example.foyer.entities.Bloc;
 import com.example.foyer.entities.Foyer;
 
 import java.util.List;
@@ -17,5 +18,4 @@ public interface IFoyerService {
     Foyer getFoyerById(int id);
 
     void assignBlocToFoyer( int idBloc, int idFoyer) ;
-
 }

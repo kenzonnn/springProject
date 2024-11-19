@@ -24,7 +24,6 @@
         @OneToOne(mappedBy = "foyer")
         @JsonIgnore
         private Universite universite;
-
 //hedha l fils puisque fama l mapped by
         @OneToMany(cascade = CascadeType.ALL , mappedBy = "foyer")
         private List<Bloc> bloc;

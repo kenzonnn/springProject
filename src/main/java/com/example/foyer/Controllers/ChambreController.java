@@ -3,6 +3,7 @@ package com.example.foyer.Controllers;
 
 import com.example.foyer.Services.IChambreService;
 import com.example.foyer.entities.Chambre;
+import com.example.foyer.entities.TypeChambre;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -52,5 +53,10 @@ public class ChambreController {
     @Operation(summary = "Get all Chambres", description = "Retrieves a list of all Chambres.")
     public List<Chambre> getAllChambre() {
         return chambreService.getAllChambre();
+    }
+
+    @GetMapping("recupererListChambre/{idBloc}/{typeChambre}")
+    public List<Chambre> recupererListChambre(@PathVariable ("idBloc") int idBloc, @PathVariable ("typeChambre") TypeChambre typeChambre) {
+        return chambreService.recupererListChambre(idBloc , typeChambre);
     }
 }

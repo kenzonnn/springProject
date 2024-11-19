@@ -15,9 +15,7 @@ public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int idUniversite;
-
     String nomUniversite;
-
     String adresse;
 
     @OneToOne(cascade = CascadeType.ALL)

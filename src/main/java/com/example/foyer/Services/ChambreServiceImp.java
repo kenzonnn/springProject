@@ -3,6 +3,7 @@ package com.example.foyer.Services;
 import com.example.foyer.Repositories.ChambreRepo;
 import com.example.foyer.entities.Chambre;
 
+import com.example.foyer.entities.TypeChambre;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +45,10 @@ public class ChambreServiceImp implements IChambreService{
     @Override
     public void deleteChambreById(int idChambre) {
         chambreRepository.deleteById(idChambre);
+    }
+
+    @Override
+    public List<Chambre> recupererListChambre(int idBloc , TypeChambre typeChambre){
+        return chambreRepository.findChambreByBloc_IdBlocAndTypeC(idBloc, typeChambre);
     }
 }
