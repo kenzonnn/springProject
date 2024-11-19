@@ -6,6 +6,7 @@ import com.example.foyer.entities.Etudiant;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -37,5 +38,19 @@ public class EtudiantServiceImp implements IEtudiantService{
     @Override
     public List<Etudiant> getAllEtudiant() {
         return etudiantRepository.findAll();
+    }
+
+    @Override
+    public Etudiant getEtudiantByCin(int cin){
+        return etudiantRepository.findByCin(cin);
+    }
+
+    @Override
+    public List<Etudiant> getEtudiantByDateNaissanceGreaterThan(Date date) {
+        return etudiantRepository.findAllByDateNaissanceGreaterThan(date);
+    }
+    @Override
+    public List<Etudiant> repererAllByDateNAfter(Date date) {
+        return etudiantRepository.findAllByDateNaissanceAfter(date);
     }
 }

@@ -10,8 +10,10 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -52,5 +54,22 @@ public class EtudiantController {
     @Operation(summary = "Get all Étudiants", description = "Retrieves a list of all Étudiants.")
     public List<Etudiant> getAllEtudiant() {
         return etudiantService.getAllEtudiant();
+    }
+
+
+    @GetMapping("/cin/{cin}")
+    @Operation(summary = "Get Étudiant by CIN", description = "Retrieves an Étudiant by its CIN.")
+    public Etudiant getEtudiantByCin(@PathVariable("cin") int cin) {
+        return etudiantService.getEtudiantByCin(cin);
+    }
+
+    @GetMapping("recupererAllByDateNaissanceGreaterThan/{dateN}")
+    public List<Etudiant> recupererByDateNaissanceGreaterThan(@PathVariable("dateN") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateN) {
+        return etudiantService.getEtudiantByDateNaissanceGreaterThan(dateN);
+    }
+
+    @GetMapping("recupererAllByDateNaissanceAfter/{dateN}")
+    public List<Etudiant> repererAllByDateNAfter(@PathVariable("dateN") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateN) {
+        return etudiantService.repererAllByDateNAfter(dateN);
     }
 }

@@ -21,6 +21,7 @@ public class Etudiant {
     String prenom;
     int cin;
     String ecole;
+
     Date dateNaissance;
 
     @ManyToMany( mappedBy = "etudiants")
